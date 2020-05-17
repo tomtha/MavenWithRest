@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "00572121-a1ec-423a-a6c6-61ceab064a22",
+		"name": "DataDrivenEnvironment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe296b96-0af3-49c3-830c-829343f30d75",
+						"exec": [
+							"tests[\"Contains email2\"] = responseBody.has(data[\"email\"]);\r",
+							"\r",
+							"tests[\"Contains password1\"] = responseBody.has(data[\"password\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/{{endpoint}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"{{endpoint}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
